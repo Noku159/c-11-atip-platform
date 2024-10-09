@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     {
         get 
         {
-            return Health;
+            return health;
         }
         set
         {
