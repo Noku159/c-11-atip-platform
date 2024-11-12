@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,41 +14,27 @@ public class Player : Character ,IShootable
     {
         if (Input.GetButtonDown("Fire1") && BulletSpawnTime >= BulletTimer)
         {
-            GameObject bulletObj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
-            Banana banana = bulletObj.GetComponent<Banana>();
-            banana.Init ;
-            WaitTime = 0;
+            GameObject Obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            Banana banana = Obj.GetComponent<Banana>();
+            banana.Init (10, this);
+            BulletSpawnTime = 0;
         }
     }
 
     void Start()
     {
         Init(100);
-        WaitTime = 0.0f;
-        ReloadTime = 1.0f;
+        BulletTimer = 0.0f;
+        BulletSpawnTime = 1.0f;
     }
     
-    void Update()
+    public void Update()
     {
         Shoot();
     }
 
     private void FixedUpdate()
     {
-        WaitTime += Time.fixedDeltaTime;
-    }
-    void OnHitWith(Enemy enemy)
-    {
-        TakeDamage(enemy.DamageHit);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
-        { 
-         OnHitWith(enemy);
-         Debug.Log($"{this.name} hit with {enemy.name} dealing {enemy.DamageHit}damage.");
-        }
+        BulletSpawnTime += Time.fixedDeltaTime;
     }
 }

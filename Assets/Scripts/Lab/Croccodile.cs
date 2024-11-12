@@ -2,41 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crocodile : Enemy
+public class Croccodile : Enemy, IShootable
 {
-
     [SerializeField] private float attackRange;
     public Player player;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private Transform bulletSpawnPoint;
 
-    [SerializeField] private float bulletSpawnTime;
-    [SerializeField] private float bulletTimer;
-    private void Update()
+
+    [field: SerializeField] public GameObject Bullet { get; set; }
+    [field: SerializeField] public Transform BulletSpawnPoint { get; set; }
+    [field: SerializeField] public float BulletSpawnTime { get; set; }
+    [field: SerializeField] public float BulletTimer { get; set; }
+
+
+
+    void Start()
     {
-
-        bulletTimer -= Time.deltaTime;
+        Init(30);
+        DamageHit = 30;
+        BulletTimer = 1.0f;
+        BulletSpawnTime = 0.0f;
+        player = GameObject.FindObjectOfType<Player>();
+    }
+    private void FixedUpdate()
+    {
+        BulletSpawnTime += Time.fixedDeltaTime;
 
         Behavior();
     }
     public override void Behavior()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        float dirstance = direction.magnitude;
+        Vector2 direction = player.transform.position - transform.position;
 
-        if (dirstance < attackRange)
+        if (direction.magnitude <= attackRange)
         {
-            shoot();
+            Shoot();
         }
+
     }
-    private void shoot()
+    public void Shoot()
     {
-        if (bulletTimer <= 0)
+        if (BulletSpawnTime >= BulletTimer)
         {
-            Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            anim.SetTrigger("Shoot");
+            GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            Rock rock = obj.gameObject.GetComponent<Rock>();
+            rock.Init(20, this);
 
-            bulletTimer = bulletSpawnTime;
+            BulletSpawnTime = 0;
         }
+
 
 
     }

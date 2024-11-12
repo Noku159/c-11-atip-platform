@@ -17,12 +17,29 @@ public abstract class Weapon : MonoBehaviour
            damage = value;
         }  
     }
+    public void Init(int _damage, IShootable _owner)
+    {
 
-    protected string ownerIshootable;
+        Damage = _damage;
+
+        shooter = _owner;
+
+    }
+
+    protected IShootable shooter;
     public abstract void OnHitWith(Character character);
     public abstract void Move();
     public int GetShootDiection()
     {
         return 1;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+
+    {
+
+        OnHitWith(other.GetComponent<Character>());
+
+        Destroy(this.gameObject, 5f);
+
     }
 }
