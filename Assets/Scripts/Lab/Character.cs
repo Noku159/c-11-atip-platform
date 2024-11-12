@@ -18,6 +18,12 @@ public abstract class Character : MonoBehaviour
         
     }
 
+    public virtual void Init(int newHealth)
+    {
+        health = newHealth;
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
     public Animator anim;
     public Rigidbody2D rb;
 

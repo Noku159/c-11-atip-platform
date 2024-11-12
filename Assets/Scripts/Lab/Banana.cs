@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Banana : Weapon
 {
-    public void Start()
-    {
-        Damage = 30;
-        speed = 4f;
-        Move();
-        OnHitWith();
-    }
-
-    [SerializeField] private float speed;
-
+    [SerializeField] float speed;
     public override void Move()
     {
-        Debug.Log("Banana moveing with transform");
+        float newX = transform.position.x + speed * Time.fixedDeltaTime;
+        float newY = transform.position.y ;
+        Vector2 newPosition = new Vector2(newX, newY);
+        transform.position = newPosition;
     }
-    public override void OnHitWith()
+    public override void OnHitWith(Character character)
     {
-
+        if (character is Enemy) 
+        {
+            character.TakeDamage(this.Damage);
+        }
+    }
+    private void Start()
+    {
+        Damage = 30;
+        speed = 4.0f * GetShootDiection();
+    }
+    private void FixedUpdate()
+    {
+        Move();
     }
 }

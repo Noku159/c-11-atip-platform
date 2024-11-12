@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    private int damage;
+
+    [SerializeField]private int damage;
     public int Damage
     {  
         get
@@ -17,8 +18,8 @@ public abstract class Weapon : MonoBehaviour
         }  
     }
 
-    public string ownerIshootable;
-    public abstract void OnHitWith();
+    protected string ownerIshootable;
+    public abstract void OnHitWith(Character character);
     public abstract void Move();
     public int GetShootDiection()
     {
