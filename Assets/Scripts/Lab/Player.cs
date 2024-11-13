@@ -9,23 +9,24 @@ public class Player : Character ,IShootable
     [field: SerializeField] public Transform BulletSpawnPoint { get; set; }
     [field: SerializeField] public float BulletSpawnTime { get; set; }
     [field: SerializeField] public float BulletTimer { get; set; }
-
+    
     public void Shoot()
     {
         if (Input.GetButtonDown("Fire1") && BulletSpawnTime >= BulletTimer)
         {
-            GameObject Obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
-            Banana banana = Obj.GetComponent<Banana>();
-            banana.Init (10, this);
+            GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            Banana banana = obj.GetComponent<Banana>();
+            banana.Init(10, this);
             BulletSpawnTime = 0;
+
         }
     }
 
     void Start()
     {
         Init(100);
-        BulletTimer = 0.0f;
-        BulletSpawnTime = 1.0f;
+        BulletTimer = 1.0f;
+        BulletSpawnTime = 0.0f;
     }
     
     public void Update()

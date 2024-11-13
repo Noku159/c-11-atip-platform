@@ -7,13 +7,13 @@ public class Ant : Enemy
 
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
+    public Player player;
 
     private void Start()
     {
-        //Init(10);
-        Debug.Log("Ant health : " + Health);
-
-        Behavior();
+        Init(100);
+        DamageHit = 2;
+        player = GameObject.FindAnyObjectByType<Player>();
     }
 
     //public void Init(int newHealth)
@@ -49,5 +49,7 @@ public class Ant : Enemy
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    
 
 }

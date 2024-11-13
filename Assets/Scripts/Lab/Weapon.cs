@@ -42,4 +42,13 @@ public abstract class Weapon : MonoBehaviour
         Destroy(this.gameObject, 5f);
 
     }
+    public int GetShootDirection() //to be modify
+    {
+        float shooterDir = shooter.BulletSpawnPoint.transform.position.x - shooter.BulletSpawnPoint.parent.position.x;
+        if (shooterDir < 0)
+            return -1;
+        else
+            return 1;
+
+    }
 }

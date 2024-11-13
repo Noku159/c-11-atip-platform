@@ -21,7 +21,7 @@ public class Banana : Weapon
     }
     private void Start()
     {
-        Damage = 30;
+        Damage = 10;
         speed = 4.0f * GetShootDiection();
         
     }

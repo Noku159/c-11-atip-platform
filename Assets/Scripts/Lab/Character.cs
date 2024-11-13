@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-   [SerializeField] private int health;
-   public int Health
+    [SerializeField] private int health;
+    public int Health
     {
-        get 
+        get
         {
             return health;
         }
@@ -15,7 +15,7 @@ public abstract class Character : MonoBehaviour
         {
             health = value;
         }
-        
+
     }
 
     public virtual void Init(int newHealth)
@@ -30,7 +30,7 @@ public abstract class Character : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool Isdead()
-    { 
+    {
         if (Health <= 0)
         {
             Destroy(this.gameObject);
@@ -48,3 +48,4 @@ public abstract class Character : MonoBehaviour
         healtBar.SetHealth(health);
     }
 }
+
