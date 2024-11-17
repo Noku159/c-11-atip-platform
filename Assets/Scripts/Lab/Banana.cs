@@ -8,13 +8,13 @@ public class Banana : Weapon
     public override void Move()
     {
         float newX = transform.position.x + speed * Time.fixedDeltaTime;
-        float newY = transform.position.y ;
+        float newY = transform.position.y;
         Vector2 newPosition = new Vector2(newX, newY);
         transform.position = newPosition;
     }
     public override void OnHitWith(Character character)
     {
-        if (character is Enemy) 
+        if (character is Enemy)
         {
             character.TakeDamage(this.Damage);
         }
@@ -23,7 +23,7 @@ public class Banana : Weapon
     {
         Damage = 10;
         speed = 4.0f * GetShootDiection();
-        
+
     }
     private void FixedUpdate()
     {

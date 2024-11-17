@@ -48,4 +48,3 @@ public abstract class Character : MonoBehaviour
         healtBar.SetHealth(health);
     }
 }
-

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Croccodile : Enemy, IShootable
 {
     [SerializeField] private float attackRange;
+    
     public Player player;
 
 
@@ -13,22 +15,12 @@ public class Croccodile : Enemy, IShootable
     [field: SerializeField] public float BulletSpawnTime { get; set; }
     [field: SerializeField] public float BulletTimer { get; set; }
 
-
+   
 
     void Start()
     {
-        Init(100);
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        DamageHit = 2;
-=======
-=======
->>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
->>>>>>> Stashed changes
-        DamageHit = 30;
->>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+        Init(10);
+        
         BulletTimer = 1.0f;
         BulletSpawnTime = 0.0f;
         player = GameObject.FindObjectOfType<Player>();
@@ -60,5 +52,8 @@ public class Croccodile : Enemy, IShootable
 
             BulletSpawnTime = 0;
         }
+
+
+
     }
 }

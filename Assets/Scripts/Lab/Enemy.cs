@@ -6,7 +6,8 @@ public abstract class Enemy : Character
 {
     private int damageHit;
     public int DamageHit
-    {   get
+    {
+        get
         {
             return damageHit;
         }
@@ -26,6 +27,6 @@ public abstract class Enemy : Character
     }
 
     public abstract void Behavior();
-    
+
 
 }

@@ -5,17 +5,17 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
 
-    [SerializeField]private int damage;
+    [SerializeField] private int damage;
     public int Damage
-    {  
+    {
         get
-        { 
-            return damage; 
+        {
+            return damage;
         }
         set
-        { 
-           damage = value;
-        }  
+        {
+            damage = value;
+        }
     }
     public void Init(int _damage, IShootable _owner)
     {
