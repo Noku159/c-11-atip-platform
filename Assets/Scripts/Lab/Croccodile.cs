@@ -18,7 +18,17 @@ public class Croccodile : Enemy, IShootable
     void Start()
     {
         Init(100);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        DamageHit = 2;
+=======
+=======
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+>>>>>>> Stashed changes
         DamageHit = 30;
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
         BulletTimer = 1.0f;
         BulletSpawnTime = 0.0f;
         player = GameObject.FindObjectOfType<Player>();
@@ -46,12 +56,9 @@ public class Croccodile : Enemy, IShootable
             anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
             Rock rock = obj.gameObject.GetComponent<Rock>();
-            rock.Init(20, this);
+            rock.Init(2, this);
 
             BulletSpawnTime = 0;
         }
-
-
-
     }
 }

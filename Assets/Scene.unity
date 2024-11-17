@@ -3050,6 +3050,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 174212, guid: 6dde6029886a24408b05eced6b5964a6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 485146, guid: 6dde6029886a24408b05eced6b5964a6, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3161,13 +3165,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901808446}
   serializedVersion: 2
+<<<<<<< HEAD
+  m_LocalRotation: {x: -0, y: -0, z: -0.25367203, w: 0.96729034}
+  m_LocalPosition: {x: -1.71, y: 0.32, z: 0.021818353}
+=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.05, y: -0.26, z: 0.021818353}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+=======
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 190939650}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.39}
 --- !u!1001 &1930985504
 PrefabInstance:
   m_ObjectHideFlags: 0

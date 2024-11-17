@@ -11,9 +11,25 @@ public class Ant : Enemy
 
     private void Start()
     {
+<<<<<<< Updated upstream
         Init(100);
         DamageHit = 2;
         player = GameObject.FindAnyObjectByType<Player>();
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Behavior();
+=======
+        Init(100);
+        DamageHit = 2;
+        player = GameObject.FindAnyObjectByType<Player>();
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+=======
+        Init(100);
+        DamageHit = 2;
+        player = GameObject.FindAnyObjectByType<Player>();
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+>>>>>>> Stashed changes
     }
 
     //public void Init(int newHealth)
@@ -50,6 +66,27 @@ public class Ant : Enemy
         transform.localScale = scale;
     }
 
+<<<<<<< Updated upstream
     
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+         Character playercharacter = collision.gameObject.GetComponent<Character>();
+         playercharacter.TakeDamage(2);
+
+        }
+  
+    }
+=======
+    
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+=======
+    
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+>>>>>>> Stashed changes
 
 }

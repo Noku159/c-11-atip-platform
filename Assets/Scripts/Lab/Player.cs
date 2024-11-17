@@ -24,7 +24,17 @@ public class Player : Character ,IShootable
 
     void Start()
     {
+<<<<<<< HEAD
+        Init(50);
+=======
         Init(100);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+=======
+>>>>>>> 7a015a539470fb8e6934d1e7b8e2a8d0dc590c6d
+>>>>>>> Stashed changes
         BulletTimer = 1.0f;
         BulletSpawnTime = 0.0f;
     }
