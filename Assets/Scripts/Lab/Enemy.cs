@@ -18,8 +18,6 @@ public abstract class Enemy : Character
         }
 
     }
-    [SerializeField] int damage;
-    public int Damage { get { return damage; } set { damage = value; } }
 
     private void Start()
     {

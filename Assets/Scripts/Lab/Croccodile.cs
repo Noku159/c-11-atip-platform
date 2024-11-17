@@ -48,7 +48,7 @@ public class Croccodile : Enemy, IShootable
             anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
             Rock rock = obj.gameObject.GetComponent<Rock>();
-            rock.Init(2, this);
+            rock.Init(20, this);
 
             BulletSpawnTime = 0;
         }

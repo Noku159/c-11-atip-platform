@@ -1,46 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Ant : Enemy
 {
-
-    [SerializeField] private Vector2 velocity;
-    [SerializeField] private Transform[] movePoints;
-    public Player player;
+    [SerializeField] Vector2 velocity;
+    [SerializeField] Transform[] movePoints;
+    
 
     private void Start()
     {
-        Init(100);
-        DamageHit = 2;
-        player = GameObject.FindAnyObjectByType<Player>();
-
+      
         Behavior();
-
-        Init(100);
-        DamageHit = 2;
-        player = GameObject.FindAnyObjectByType<Player>();
-
-        Init(100);
-        DamageHit = 2;
-        player = GameObject.FindAnyObjectByType<Player>();
-
     }
-
-    //public void Init(int newHealth)
-    //{
-    // Health = newHealth;
-    //}
 
     private void FixedUpdate()
     {
         Behavior();
+
     }
 
     public override void Behavior()
     {
-
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
         if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
@@ -56,21 +38,19 @@ public class Ant : Enemy
     private void FlipCharacter()
     {
         velocity *= -1;
-
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Character playercharacter = collision.gameObject.GetComponent<Character>();
-            playercharacter.TakeDamage(2);
-
+            Character playerCharacter = collision.gameObject.GetComponent<Character>();
+            playerCharacter.TakeDamage(2);
+            
         }
-
     }
+
 }
